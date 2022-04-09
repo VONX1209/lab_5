@@ -72,6 +72,22 @@ router.post('/addCar', function (req, res) {
     res.render('index')
   })
 })
+router.post('/them', function (req, res) {
+  var maXe = req.body.maXe
+  var noidung= req.body.noidung
+  var linkxe= req.body.linkxe
+  // b3 : khởi tạo Car vs giá trị lấy được
+  const car = new Car({
+    maXe: maXe,
+    noidung: noidung,
+    linkxe: linkxe
+  })
+  car.save(function (error) {
+
+    res.send({tiile:error.message,message:'cap nhan thanh cong'})
+  })
+});
+
 router.post('/btn', function (req, res) {
 
     res.render('sua')
