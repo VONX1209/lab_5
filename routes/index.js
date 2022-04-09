@@ -36,6 +36,11 @@ router.get('/cars', function (req, res) {
     res.render('cars', {duLieu: data})
   })
 })
+router.get('/getall', function (req, res) {
+  Car.find({}, function (err, data) {
+    res.send( data)
+  })
+})
 //buoc 1 : khoi tao khung - Schema
 var carSchema = new mongoose.Schema({
   maXe: 'string',
@@ -73,3 +78,4 @@ router.post('/btn', function (req, res) {
 })
 
 module.exports = router;
+// https://tiengvietpoly.herokuapp.com/getAll
